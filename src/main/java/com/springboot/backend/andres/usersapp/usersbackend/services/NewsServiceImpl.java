@@ -30,7 +30,7 @@ public class NewsServiceImpl implements NewsService {
     @Transactional(readOnly = true)
     @Override
         public Page<News> findByTitle(String title, Pageable pageable) {
-        return repository.findByTitle(title, pageable);
+        return repository.findByTitleContainingIgnoreCase(title, pageable);
     }
 
     @Override
